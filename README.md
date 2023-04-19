@@ -12,60 +12,60 @@
 
 ### Technical Explanation:
 
-Convolutional Neural Network -- [CNN.py](https://github.com/harshp30/ViolaJonesVideoAnonymizer/blob/main/CNN.py)
+Convolutional Neural Network -- [CNN.py](https://github.com/harshp30/CNNCifar10/blob/main/CNN.py)
 
 
 *What is a CNN?*
 
-> A convolutional neural network is a class of artificial neural network most commonly applied to analyze visual imagery
+> A convolutional neural network is a class of artificial neural networks most commonly applied to analyze visual imagery
 
 ![CNN Arch](images/CNN.jpg)
 
-CNNs have one major assumption, the inputs have to be images that's what CNNs are deisgned for
-We can encode the certain properties within the architechure:
-- Neurons are not connected to every enuron in the next layer
-- Under the hood it uses a standard neural network architecture but the data is tranformed to improve accuracy
+CNNs have one major assumption, the inputs have to be images that's what CNNs are designed for
+We can encode certain properties within the architecture:
+- Neurons are not connected to every neuron in the next layer
+- Under the hood it uses a standard neural network architecture but the data is transformed to improve accuracy
 
 There are 3 key important steps:
 1. Convolutional Operation (kernel)
 
     Kernels can be used to detect relevant features in a given image
 
-    There are multiple kernels that can perform various features:
+    Multiple kernels can perform various features:
     - Sharpen Kernel
-    - Edge Detcetion Kernel
+    - Edge Detection Kernel
     - Blur Kernel
 
     ![CNN Kernel](images/kernel.png)
 
     Every single kernel will use a specific feature of the image
 
-    How would you decide which features detector to use?
-    - CNN use many kernels and during the training procedure it seletcs the best possible kernel to use
+    How would you decide which feature detector to use?
+    - CNN uses many kernels and during the training procedure it selects the best possible kernel to use
 
     Several features maps are created because of many feature detectors applied on the same image, then the ReLU activation function is applied to introduce non-linearity
 
 2. Pooling
 
-    We would like to detect the same object no matter where it is located on the image no matter it's rotation or any other transformation (spatial invariance)
+    We would like to detect the same object no matter where it is located on the image no matter its rotation or any other transformation (spatial invariance)
 
-    With max pooling we select the most relevant features, this is how we deal with spatial inavirance
+    With max pooling we select the most relevant features, this is how we deal with spatial invariance
 
-    We reduce the dimensions of the image in order to end with a dataset containing the important pixel values without unnecessary noise
+    We reduce the dimensions of the image to end with a dataset containing the important pixel values without unnecessary noise
 
     ![CNN Pooling](images/pooling.png)
 
 3. Flattening
 
-    In flattening we transform the matrix into 1D, we preprocess the data like this and use ANN with just the releveant features
+    In flattening we transform the matrix into 1D, preprocess the data like this and use ANN with just the relevant features
 
-    We use multilayer neural network and learn the non-linear combinations of these important features
+    We use a multilayer neural network and learn the non-linear combinations of these important features
 
-    We then use gradient descent (backpropagation) to train the CNN, this envolves update the edge weights according to the error and choosing thr right filter (kernel filter)
+    We then use gradient descent (backpropagation) to train the CNN, this involves update the edge weights according to the error and choosing the right filter (kernel filter)
 
     ![CNN Flattening](images/flattening.png)
 
-We appply a matrix operation to multiply the values:
+We apply a matrix operation to multiply the values:
 
 `f(x,y)*g(x,y) = Σ[cols,n=0]Σ[rows,m=0]g(n,m)*f(x-n,y-m)`
 
@@ -76,7 +76,7 @@ Using a CNN I trained it on the following Cifar-10 dataset
 
 *What is a Cifar-10?*
 
-> The Cifar-10 Dataset is a publicly avaliable dataset containing images between 10 different classes
+> The Cifar-10 Dataset is a publicly available dataset containing images between 10 different classes
 
 "The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images.
 
@@ -101,7 +101,7 @@ The following is the result of the network after 100 EPOCHS:
 ### Next Steps:
 
 - Try integrating CUDA to speed up training by utilizing a GPU
-- Increase number of epochs
+- Increase the number of epochs
 
 ---
 
